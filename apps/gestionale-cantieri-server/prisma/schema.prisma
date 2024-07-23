@@ -1,0 +1,273 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Cantieri {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  nome        String?
+  descrizione String?
+  immagine    Json?
+  documenti   Json?
+}
+
+model Lavorazioni {
+  id          String     @id @default(cuid())
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  descrizione String?
+  dataInizio  DateTime?
+  dataFine    DateTime?
+  nome        String?
+  ente        String?
+  operatore   Operatore? @relation(fields: [operatoreId], references: [id])
+  operatoreId String?
+}
+
+model Operatore {
+  id               String        @id @default(cuid())
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+  nome             String?
+  cognome          String?
+  email            String?
+  password         String?
+  lavorazionis     Lavorazioni[]
+  permessiSpeciali Boolean?
+}
+
+model Enti {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  tipo        String?
+  nome        String?
+  descrizione String?
+  cantiere    String?
+}
+
+model Operatore2 {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  password         String?
+  permessiSpeciali Boolean?
+}
+
+model Operatore1 {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  password         String?
+  permessiSpeciali Boolean?
+}
+
+model Operatore4 {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  password         String?
+  permessiSpeciali Boolean?
+}
+
+model Operatore3 {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  password         String?
+  permessiSpeciali Boolean?
+}
+
+model Operatore20 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore19 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore26 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore30 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore27 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore22 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore23 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore5 {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  password         String?
+  permessiSpeciali Boolean?
+}
+
+model Operatore29 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore28 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore6 {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  password         String?
+  permessiSpeciali Boolean?
+}
+
+model Operatore21 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore15 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore25 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore24 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore18 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore16 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore13 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore9 {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  password         String?
+  permessiSpeciali Boolean?
+}
+
+model Operatore7 {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  password         String?
+  permessiSpeciali Boolean?
+}
+
+model Operatore10 {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  password         String?
+  permessiSpeciali Boolean?
+}
+
+model Operatore8 {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  password         String?
+  permessiSpeciali Boolean?
+}
+
+model Operatore14 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore12 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore17 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
+
+model Operatore11 {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+}
